@@ -17,23 +17,23 @@ public class UsuariosController : ControllerBase
     }
 
     [HttpGet("con-escritos")]
-    public async Task<IActionResult> GetUsuariosConEscritos()
-    {
-        var usuarios = await (
-            from e in _context.Escritos
-            join u in _context.Usuarios
-                on e.Id_Usuario equals u.Id
-            where e.Activo && u.Activo
-            select new UsuarioDto
-            {
-                Id = u.Id,
-                Nombre = u.NombreUsuario
-            }
-        )
-        .Distinct()
-       .OrderBy(x => x.Nombre)
-        .ToListAsync();
+public async Task<IActionResult> GetUsuariosConEscritos()
+{
+    var usuarios = await (
+        from e in _context.Escritos
+        join u in _context.Usuarios
+            on e.Id_Usuario.ToString() equals u.Id
+        where e.Activo && u.Activo
+        select new UsuarioDto
+        {
+              Id = u.Id,
+    Nombre = u.NombreUsuario.Trim()
+        }
+    )
+    .Distinct()
+    .OrderBy(x => x.Nombre)
+    .ToListAsync();
 
-        return Ok(usuarios);
-    }
+    return Ok(usuarios);
+}
 }

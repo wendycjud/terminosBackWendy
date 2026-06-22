@@ -28,9 +28,12 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Sala>()
             .HasKey(x => x.IdCveSalas);
         modelBuilder.Entity<Usuario>()
-.ToTable("Usuarios");
+    .ToTable("Usuarios");
 
-       modelBuilder.Entity<Usuario>()
+modelBuilder.Entity<Usuario>()
+    .HasKey(x => x.Id);
+
+modelBuilder.Entity<Usuario>()
     .Property(x => x.NombreUsuario)
     .HasColumnName("Usuario");
 

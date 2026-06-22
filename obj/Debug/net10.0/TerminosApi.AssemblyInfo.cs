@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TerminosApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6aab2224e6889e941a30493bf5d7b27689b67318")]
 [assembly: System.Reflection.AssemblyProductAttribute("TerminosApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TerminosApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

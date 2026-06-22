@@ -159,3 +159,4 @@ C:\Users\PODERJUDICIAL01\Desktop\TerminosApi\TerminosApi\obj\Debug\net10.0\refin
 C:\Users\PODERJUDICIAL01\Desktop\TerminosApi\TerminosApi\obj\Debug\net10.0\TerminosApi.pdb
 C:\Users\PODERJUDICIAL01\Desktop\TerminosApi\TerminosApi\obj\Debug\net10.0\TerminosApi.genruntimeconfig.cache
 C:\Users\PODERJUDICIAL01\Desktop\TerminosApi\TerminosApi\obj\Debug\net10.0\ref\TerminosApi.dll
+C:\Users\PODERJUDICIAL01\Desktop\TerminosApi\TerminosApi\obj\Debug\net10.0\TerminosApi.sourcelink.json
