@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TerminosApi.Data;
-
+using QuestPDF.Infrastructure;
+using TerminosApi.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
@@ -20,7 +21,8 @@ builder.Services.AddCors(options =>
                   .AllowAnyHeader()
                   .AllowAnyMethod());
 });
-
+QuestPDF.Settings.License = LicenseType.Community;
+builder.Services.AddScoped<PdfReportService>();
 var app = builder.Build();
 
 app.UseSwagger();
