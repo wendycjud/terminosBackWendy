@@ -22,7 +22,7 @@ public async Task<IActionResult> GetUsuariosConEscritos()
     var usuarios = await (
         from e in _context.Escritos
         join u in _context.Usuarios
-            on e.Id_Usuario.ToString() equals u.Id
+            on e.Id_usuario.ToString() equals u.Id
         where e.Activo && u.Activo
         select new UsuarioDto
         {

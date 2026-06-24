@@ -15,6 +15,18 @@ public class AppDbContext : DbContext
     public DbSet<Usuario> Usuarios { get; set; }
 
     public DbSet<Escrito> Escritos { get; set; }
+
+public DbSet<ElementCat> ElementCat { get; set; }
+
+public DbSet<ParteTer> PartesTer { get; set; }
+
+public DbSet<AnexoTer> AnexosTer { get; set; }
+
+public DbSet<CatAnexo> CatAnexos { get; set; }
+
+public DbSet<OtroAnexo> OtrosAnexos { get; set; }
+
+public DbSet<CveAnexo> CveAnexos { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Juzgado>()
@@ -42,6 +54,54 @@ modelBuilder.Entity<Usuario>()
 
         modelBuilder.Entity<Escrito>()
             .HasKey(x => x.IdEscritos);
+            modelBuilder.Entity<ElementCat>()
+    .ToTable("elemen_cat");
+
+modelBuilder.Entity<ElementCat>()
+    .HasKey(x => x.Idelemencat);
+
+modelBuilder.Entity<ParteTer>()
+    .ToTable("PartesTer");
+
+modelBuilder.Entity<ParteTer>()
+    .HasKey(x => x.IdPartesTer);
+
+modelBuilder.Entity<AnexoTer>()
+    .ToTable("AnexosTer");
+
+modelBuilder.Entity<AnexoTer>()
+    .HasKey(x => x.Idanexoter);
+
+modelBuilder.Entity<CatAnexo>()
+    .ToTable("CATANEXOS_borrar");
+
+modelBuilder.Entity<CatAnexo>()
+    .HasKey(x => x.Clave);
+
+modelBuilder.Entity<CatAnexo>()
+    .Property(x => x.Clave)
+    .HasColumnName("CLAVE");
+
+modelBuilder.Entity<CatAnexo>()
+    .Property(x => x.Des)
+    .HasColumnName("DES");
+
+modelBuilder.Entity<OtroAnexo>()
+    .ToTable("Otros_anexos");
+
+modelBuilder.Entity<OtroAnexo>()
+    .HasKey(x => x.IdOtros_anexos);
+
+    modelBuilder.Entity<CveAnexo>()
+    .ToTable("cveAnexos");
+
+modelBuilder.Entity<CveAnexo>()
+    .HasKey(x => x.IdCatCveAnexos);
+
+modelBuilder.Entity<CveAnexo>()
+    .Property(x => x.CveAnexoCodigo)
+    .HasColumnName("cveAnexo");
     }
+    
 
 }
