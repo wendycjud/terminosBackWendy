@@ -81,14 +81,32 @@ public class ReportesController : ControllerBase
                 documentos.Add(detalle);
             }
         }
+        string? nombreJuzgado = null;
+        string? nombreSala = null;
+
+        if (!string.IsNullOrWhiteSpace(filtro.Juzgado))
+        {
+            nombreJuzgado = await _context.Juzgados
+                .Where(x => x.Cve == filtro.Juzgado)
+                .Select(x => x.Descripcion)
+                .FirstOrDefaultAsync();
+        }
+
+        if (!string.IsNullOrWhiteSpace(filtro.Sala))
+        {
+            nombreSala = await _context.Salas
+                .Where(x => x.Cve == filtro.Sala)
+                .Select(x => x.Descripcion)
+                .FirstOrDefaultAsync();
+        }
 
         var reporte = new ReportePdfDto
         {
             Instancia = filtro.Instancia == "P"
     ? "Primera Instancia"
     : "Segunda Instancia",
-            Juzgado = filtro.Juzgado,
-            Sala = filtro.Sala,
+            Juzgado = nombreJuzgado,
+Sala = nombreSala,
             FechaInicial = filtro.FechaInicial,
             FechaFinal = filtro.FechaFinal,
             TotalRegistros = documentos.Count,
